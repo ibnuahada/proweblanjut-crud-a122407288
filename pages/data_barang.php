@@ -5,6 +5,9 @@ $query = $conn->query("SELECT * FROM barang");
 $data = $query->fetchAll();
 ?>
 
+<div>
+    <a href="tambah.php">Tambah Barang</a>
+</div>
 <table border="1">
 <tr>
     <th>No</th>
@@ -27,6 +30,10 @@ $data = $query->fetchAll();
         <span>
         Rp<?php echo number_format($row['harga'], 0, ',', '.'); ?>
         </span>
+    </td>
+    <td>
+        <a href="edit.php">Edit</a>
+        <a href="hapus.php">Hapus</a>
     </td>
 </tr>
 
