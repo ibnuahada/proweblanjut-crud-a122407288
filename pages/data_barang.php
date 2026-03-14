@@ -15,6 +15,7 @@ $data = $query->fetchAll();
     <th>Nama Barang</th>
     <th>Jumlah</th>
     <th>Harga</th>
+    <th>Aksi</th>
 </tr>
 
 <?php if(count($data) > 0): ?>
@@ -32,8 +33,8 @@ $data = $query->fetchAll();
         </span>
     </td>
     <td>
-        <a href="edit.php">Edit</a>
-        <a href="hapus.php">Hapus</a>
+        <a href="edit.php?id=<?php echo $row['id']; ?>">Edit</a> |
+        <a href="hapus.php?id=<?php echo $row['id']; ?>">Hapus</a>
     </td>
 </tr>
 
@@ -41,7 +42,7 @@ $data = $query->fetchAll();
 <?php else: ?>
 
 <tr>
-    <td colspan="5"> Data Kosong </td>
+    <td colspan="6"> Data Kosong </td>
 </tr>
 
 <?php endif; ?>
