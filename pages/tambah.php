@@ -7,7 +7,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $jumlah = $_POST['jumlah'];
     $kategori = $_POST['kategori'];
     $harga = $_POST['harga'];
-    $tanggal_masuk = $_POST['tanggal_masuk'];
     $keterangan = $_POST['keterangan'];
 
     $check_query = $conn->prepare("SELECT id FROM barang WHERE kode_barang = ?");
@@ -17,7 +16,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['pesan'] = "Kode barang sudah digunakan!";
         $_SESSION['tipe'] = "error";
     } else {
-        $query = $conn->prepare("INSERT INTO barang (kode_barang, nama_barang, jumlah, kategori, harga, tanggal_masuk, keterangan) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $query = $conn->prepare("INSERT INTO barang (kode_barang, nama_barang, jumlah, kategori, harga, keterangan) VALUES (?, ?, ?, ?, ?, ?)");
         
         try {
             $query->execute([
@@ -26,7 +25,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $jumlah, 
                 $kategori, 
                 $harga, 
-                $tanggal_masuk, 
                 $keterangan
             ]);
 
@@ -62,11 +60,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         <option value="Aksesoris">Aksesoris</option>
     </select> <br><br>
     <label>Harga</label>
-    <input type="number" id="kode_barang" name="harga"> <br><br>
-    <label>Tanggal Masuk</label>
-    <input type="date" id="kode_barang" name="tanggal_masuk"> <br><br>
+    <input type="number" id="harga" name="harga"> <br><br>
     <label>Keterangan</label>
-    <textarea id="kode_barang" name="keterangan" rows="4"></textarea> <br><br>
+    <textarea id="keterangan" name="keterangan" rows="4"></textarea> <br><br>
 
     <button type="submit">Simpan</button>
     <button type="reset">Reset</button>
