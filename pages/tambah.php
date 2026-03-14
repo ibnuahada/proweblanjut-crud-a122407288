@@ -64,6 +64,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <label>Keterangan</label>
     <textarea id="keterangan" name="keterangan" rows="4"></textarea> <br><br>
 
-    <button type="submit">Simpan</button>
+    <button type="submit">Simpan Data</button>
     <button type="reset">Reset</button>
 </form>
