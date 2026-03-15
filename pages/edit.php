@@ -1,5 +1,5 @@
 <?php
-include "../koneksi.php";
+include 'koneksi.php';
 
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
@@ -10,7 +10,7 @@ $barang = $query->fetch(PDO::FETCH_ASSOC);
 if(!$barang) {
     $_SESSION['pesan'] = "Barang Tidak Ditemukan!";
     $_SESSION['tipe'] = "error";
-    header("Location: data_barang.php");
+    header("Location: index.php?page=data_barang");
     exit();
 }
 
@@ -44,7 +44,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['pesan'] = 'Barang Berhasil diperbarui!';
             $_SESSION['tipe'] = 'Success';
 
-            header('Location: data_barang.php');
+            header('Location: ../index.php?page=data_barang');
             exit();
         } catch (PDOException $e) {
             $_SESSION['pesan'] = 'Gagal Memperbarui Barang!' . $e->getMessage();
@@ -53,13 +53,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
+<div class="container">
+<h2 class="page-title">Edit Barang</h2>
+
+<div class="form-card">
+
 <form method="POST">
     <label>Kode Barang</label>
-    <input type="text" id="kode_barang" name="kode_barang" value="<?php echo $barang['kode_barang']; ?>" disabled> <br><br>
+    <input type="text" id="kode_barang" name="kode_barang" value="<?php echo $barang['kode_barang']; ?>" disabled>
     <label>Nama Barang</label>
-    <input type="text" id="nama_barang" name="nama_barang"  value="<?php echo $barang['nama_barang']; ?>" required> <br><br>
+    <input type="text" id="nama_barang" name="nama_barang"  value="<?php echo $barang['nama_barang']; ?>" required>
     <label>Jumlah</label>
-    <input type="number" id="jumlah" name="jumlah" value="<?php echo $barang['jumlah']; ?>" required> <br><br>
+    <input type="number" id="jumlah" name="jumlah" value="<?php echo $barang['jumlah']; ?>" required>
     <label for="kategori"> Kategori</label>
         <select id="kategori" name="kategori" required>
         <option value="">Pilih Kategori</option>
@@ -73,12 +78,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         <?php echo $barang['kategori'] == 'Furniture' ? 'selected' : ''; ?>>Furniture</option>
         <option value="Aksesoris"
         <?php echo $barang['kategori'] == 'Aksesoris' ? 'selected' : ''; ?>>Aksesoris</option>
-    </select> <br><br>
+    </select>
     <label>Harga</label>
-    <input type="number" id="harga" name="harga" value="<?php echo $barang['harga']; ?>" required> <br><br>
+    <input type="number" id="harga" name="harga" value="<?php echo (int)$barang['harga']; ?>" required>
     <label>Keterangan</label>
-    <textarea id="keterangan" name="keterangan" rows="4" required><?php echo $barang['keterangan']; ?></textarea> <br><br>
+    <textarea id="keterangan" name="keterangan" rows="4" required><?php echo $barang['keterangan']; ?></textarea>
 
-    <button type="submit">Simpan Perubahan</button>
-    <button type="reset">Reset</button>
+    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+    <button type="reset" class="btn btn-secondary">Reset</button>
 </form>
+
+</div>
+</div>

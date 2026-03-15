@@ -1,14 +1,20 @@
 <?php
-include "../koneksi.php";
+include 'koneksi.php';
 
 $query = $conn->query("SELECT * FROM barang");
 $data = $query->fetchAll();
 ?>
 
-<div>
-    <a href="tambah.php">Tambah Barang</a>
+<!-- <link rel="stylesheet" href="style/style.css"> -->
+
+<div class="container">
+
+<h2 class="page-title">Data Barang</h2>
+
+<div class="top-bar">
+<a href="index.php?page=tambah" class="btn btn-primary">+ Tambah Barang</a>
 </div>
-<table border="1">
+<table class="table">
 <tr>
     <th>No</th>
     <th>Kode Barang</th>
@@ -33,8 +39,11 @@ $data = $query->fetchAll();
         </span>
     </td>
     <td>
-        <a href="edit.php?id=<?php echo $row['id']; ?>">Edit</a> |
-        <a href="hapus.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Yakin hapus barang ini?')">Hapus</a>
+        <a href="index.php?page=edit&id=<?php echo $row['id']; ?>" class="btn btn-warning">Edit</a>
+<a href="pages/hapus.php?id=<?php echo $row['id']; ?>"
+class="btn btn-danger"
+onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus
+</a>
     </td>
 </tr>
 
@@ -47,3 +56,4 @@ $data = $query->fetchAll();
 
 <?php endif; ?>
 </table>
+</div>
