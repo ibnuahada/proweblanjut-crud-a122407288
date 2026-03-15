@@ -1,5 +1,5 @@
 <?php
-include "../koneksi.php";
+include "koneksi.php";
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $kode_barang = $_POST['kode_barang'];
@@ -31,7 +31,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['pesan'] = "Barang berhasil ditambahkan!";
             $_SESSION['tipe'] = "success";
 
-            header("Location: data_barang.php");
+            header("Location: index.php?page=data_barang");
             exit();
 
         } catch(PDOException $e) {
@@ -42,6 +42,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 ?>
+
+<link rel="stylesheet" href="../style/style.css">
+
+<div class="container">
+<h2 class="page-title">Tambah Barang</h2>
+
+<div class="form-card">
 
 <form method="POST">
     <label>Kode Barang</label>
@@ -64,6 +71,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <label>Keterangan</label>
     <textarea id="keterangan" name="keterangan" rows="4"></textarea> <br><br>
 
-    <button type="submit">Simpan Data</button>
-    <button type="reset">Reset</button>
+    <button type="submit" class="btn btn-primary">Tambah Barang</button>
+    <button type="reset" class="btn btn-secondary">Reset</button>
 </form>
+
+</div>
+</div>
