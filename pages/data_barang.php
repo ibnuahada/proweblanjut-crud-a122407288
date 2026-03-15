@@ -34,7 +34,7 @@ $data = $query->fetchAll();
     </td>
     <td>
         <a href="edit.php?id=<?php echo $row['id']; ?>">Edit</a> |
-        <a href="hapus.php?id=<?php echo $row['id']; ?>">Hapus</a>
+        <a href="hapus.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Yakin hapus barang ini?')">Hapus</a>
     </td>
 </tr>
 
