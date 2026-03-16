@@ -56,6 +56,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 <div class="container">
 <h2 class="page-title">Edit Barang</h2>
 
+<a href="index.php?page=data_barang" 
+class="btn back-link">
+<i class="fas fa-arrow-left"></i> Kembali</a>
+
 <div class="form-card">
 
 <form method="POST">
@@ -73,7 +77,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         <option value="Alat Kebersihan"
         <?php echo $barang['kategori'] == 'Alat Kebersihan' ? 'selected' : ''; ?>>Alat Kebersihan</option>
         <option value="Alat Olahraga"
-        <?php echo $barang['kategori'] == 'Alat Olahraga' ? 'selected' : ''; ?>>Alat Olahragra</option>
+        <?php echo $barang['kategori'] == 'Alat Olahraga' ? 'selected' : ''; ?>>Alat Olahraga</option>
         <option value="Furniture"
         <?php echo $barang['kategori'] == 'Furniture' ? 'selected' : ''; ?>>Furniture</option>
         <option value="Aksesoris"
@@ -82,7 +86,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <label>Harga</label>
     <input type="number" id="harga" name="harga" value="<?php echo (int)$barang['harga']; ?>" required>
     <label>Keterangan</label>
-    <textarea id="keterangan" name="keterangan" rows="4" required><?php echo $barang['keterangan']; ?></textarea>
+    <textarea id="keterangan" name="keterangan" rows="4"><?php echo $barang['keterangan']; ?></textarea> <br><br>
 
     <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
     <button type="reset" class="btn btn-secondary">Reset</button>

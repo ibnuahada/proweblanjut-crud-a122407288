@@ -41,7 +41,6 @@ body {
 
 .menu {
     width: 220px;
-    height: 500px;
     background: white;
     padding: 25px 15px;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
@@ -117,6 +116,7 @@ body {
     border: none;
     cursor: pointer;
     display: inline-block;
+    font-weight: bolder;
 }
 
 .btn-primary {
@@ -173,22 +173,6 @@ body {
     background: #f0fdf4;
 }
 
-/* RESPONSIVE TABLE */
-
-.table {
-    overflow-x: auto;
-}
-
-/* ACTION BUTTON */
-
-.action {
-    white-space: nowrap;
-}
-
-.action a {
-    margin-right: 5px;
-}
-
 /* TOP BAR */
 
 .top-bar {
@@ -206,18 +190,6 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     max-width: 500px;
-}
-
-/* FORM GROUP */
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 500;
 }
 
 /* INPUT */
@@ -255,23 +227,6 @@ button {
     text-decoration: underline;
 }
 
-/* BADGE (OPSIONAL) */
-
-.badge {
-    padding: 4px 8px;
-    border-radius: 20px;
-    font-size: 12px;
-    color: white;
-}
-
-.badge-success {
-    background: #22c55e;
-}
-
-.badge-danger {
-    background: #ef4444;
-}
-
 /* FOOTER */
 
 footer {
@@ -279,4 +234,45 @@ footer {
     padding: 20px;
     color: #777;
     margin-top: 40px;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 200px;
+}
+
+.search-box button {
+    padding: 8px 14px;
+    background: #3498db;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination a {
+    padding: 8px 12px;
+    margin: 4px;
+    background: #eee;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #333;
+}
+
+.pagination a.active {
+    background: #3498db;
+    color: white;
 }
