@@ -96,7 +96,7 @@ $total_page = ceil($total_data / $limit);
     </td>
     <td>
         <a href="index.php?page=edit&id=<?php echo $row['id']; ?>" class="btn btn-warning">Edit</a>
-<a href="index.php?page=hapus?id=<?php echo $row['id']; ?>"
+<a href="pages/hapus.php?id=<?php echo $row['id']; ?>"
 class="btn btn-danger"
 onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus
 </a>
