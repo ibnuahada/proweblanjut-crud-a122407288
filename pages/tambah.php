@@ -47,27 +47,30 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <div class="container">
 <h2 class="page-title">Tambah Barang</h2>
+<a href="index.php?page=data_barang" 
+class="btn back-link">
+<i class="fas fa-arrow-left"></i> Kembali</a>
 
 <div class="form-card">
 
 <form method="POST">
-    <label>Kode Barang</label>
-    <input type="text" id="kode_barang" name="kode_barang"> <br><br>
-    <label>Nama Barang</label>
-    <input type="text" id="nama_barang" name="nama_barang"> <br><br>
-    <label>Jumlah</label>
-    <input type="number" id="jumlah" name="jumlah"> <br><br>
-    <label for="kategori"> Kategori</label>
+    <label>Kode Barang *</label>
+    <input type="text" id="kode_barang" name="kode_barang" required>
+    <label>Nama Barang *</label>
+    <input type="text" id="nama_barang" name="nama_barang" required>
+    <label>Jumlah *</label>
+    <input type="number" id="jumlah" name="jumlah" required>
+    <label for="kategori"> Kategori *</label>
         <select id="kategori" name="kategori" required>
         <option value="">Pilih Kategori</option>
         <option value="ATK">ATK</option>
         <option value="Alat Kebersihan">Alat Kebersihan</option>
-        <option value="Alat Olahragra">Alat Olahragra</option>
+        <option value="Alat Olahraga">Alat Olahraga</option>
         <option value="Furniture">Furniture</option>
         <option value="Aksesoris">Aksesoris</option>
-    </select> <br><br>
-    <label>Harga</label>
-    <input type="number" id="harga" name="harga"> <br><br>
+    </select>
+    <label>Harga *</label>
+    <input type="number" id="harga" name="harga" required>
     <label>Keterangan</label>
     <textarea id="keterangan" name="keterangan" rows="4"></textarea> <br><br>
 
