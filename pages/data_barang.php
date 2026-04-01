@@ -1,4 +1,11 @@
 <?php
+// akses setelah login
+if (!isset($_SESSION["user_id"])) {
+ header("Location: login.php");
+ exit();
+}
+
+
 include 'koneksi.php';
 
 $limit = 5;

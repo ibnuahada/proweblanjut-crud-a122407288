@@ -8,4 +8,8 @@
 <i class="fa-solid fa-plus"></i> Tambah Barang
 </a>
 
+<a href="logout.php">
+<i class="fas fa-sign-out-alt"></i> Logout
+</a>
+
 </div>
