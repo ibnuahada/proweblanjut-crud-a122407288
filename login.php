@@ -2,7 +2,12 @@
 session_start();
 include "koneksi.php";
 
-// Jika sudah login, langsung masuk
+if (!isset($_SESSION["user_id"]) && isset($_COOKIE["user_id"])) {
+    $_SESSION["user_id"] = $_COOKIE["user_id"];
+    header("Location: index.php?page=data_barang");
+    exit();
+}
+
 if (isset($_SESSION["user_id"])) {
     header("Location: index.php?page=data_barang");
     exit();
@@ -13,6 +18,7 @@ $error = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
+    $remember = isset($_POST["remember"]);
 
     try {
         $stmt = $conn->prepare("SELECT id, password FROM users WHERE username = ?");
@@ -22,6 +28,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($user) {
             if (password_verify($password, $user["password"])) {
                 $_SESSION["user_id"] = $user["id"];
+
+                if ($remember) {
+                    setcookie("user_id", $user["id"], time() + (86400 * 7), "/");
+                }
+
                 header("Location: index.php?page=data_barang");
                 exit();
             } else {
@@ -62,6 +73,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label>Password</label>
             <input type="password" name="password" placeholder="Masukkan password" required>
         </div>
+
+        <div class="remember-group">
+            <input type="checkbox" name="remember" id="remember">
+            <label for="remember">Remember Me!</label>
+        </div>
+
         <button type="submit">Login</button>
     </form>
 

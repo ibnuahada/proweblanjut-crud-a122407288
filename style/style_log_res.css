@@ -108,3 +108,26 @@ button:hover {
     color: #4d7c0f;
     text-decoration: none;
 }
+
+.remember-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 8px;
+}
+
+.remember-group input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #65a30d;
+}
+
+.remember-group label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+    user-select: none;
+    font-weight: normal;
+    margin-bottom: 0;
+}
