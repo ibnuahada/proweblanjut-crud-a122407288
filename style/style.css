@@ -277,3 +277,17 @@ footer {
     border-color: #3498db;
     color: #115685;
 }
+
+.table td img {
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    object-fit: cover;
+    height: 40px;
+    width: 40px;
+}
+
+.table td img:hover {
+    transform: scale(2.5);
+    position: relative;
+    z-index: 10;
+}
