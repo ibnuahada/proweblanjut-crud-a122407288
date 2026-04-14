@@ -1,5 +1,3 @@
-/* RESET */
-
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +10,6 @@ body {
     color: #333;
 }
 
-/* HEADER */
 
 .header {
     background: #65a30d;
@@ -30,14 +27,13 @@ body {
     gap: 8px;
 }
 
-/* LAYOUT UTAMA */
 
 .main-layout {
     display: flex;
     min-height: 100vh;
+    height: auto;
 }
 
-/* SIDEBAR MENU */
 
 .menu {
     width: 220px;
@@ -47,7 +43,6 @@ body {
     border-right: 1px solid #eee;
 }
 
-/* MENU ITEM */
 
 .menu a {
     display: flex;
@@ -61,7 +56,6 @@ body {
     transition: all 0.2s ease;
 }
 
-/* ICON MENU */
 
 .menu a i {
     margin-right: 10px;
@@ -69,7 +63,6 @@ body {
     width: 18px;
 }
 
-/* HOVER MENU */
 
 .menu a:hover {
     background: #ecfccb;
@@ -77,36 +70,32 @@ body {
     transform: translateX(3px);
 }
 
-/* MENU AKTIF */
 
 .menu a.active {
     background: #65a30d;
     color: white;
 }
 
-/* AREA KONTEN */
-
 .content {
     flex: 1;
-    padding: 30px;
+    padding: 30px 30px 100px 30px;
+    width: 100%;
+    background-color: #f4f6f4;
+    overflow-x: hidden;
 }
-
-/* CONTAINER */
 
 .container {
-    width: 100%;
-    max-width: 1100px;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0;
 }
-
-/* TITLE */
 
 .page-title {
     font-size: 24px;
     margin-bottom: 25px;
     color: #3f6212;
 }
-
-/* BUTTON */
 
 .btn {
     padding: 8px 14px;
@@ -143,37 +132,37 @@ body {
     color: white;
 }
 
-/* TABLE */
 
 .table {
-    width: 100%;
+    width: 100% !important;
+    margin: 0;
     border-collapse: collapse;
+    border-spacing: 0;
     background: white;
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .table th {
     background: #65a30d;
     color: white;
-    padding: 12px;
+    padding: 15px;
     text-align: left;
     font-size: 14px;
+    font-weight: 600;
 }
 
 .table td {
-    padding: 12px;
-    border-bottom: 1px solid #eee;
-    font-size: 14px;
-    vertical-align: middle;
+    padding: 15px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #444;
 }
 
 .table tr:hover {
     background: #f0fdf4;
 }
 
-/* TOP BAR */
 
 .top-bar {
     display: flex;
@@ -182,7 +171,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* FORM CARD */
 
 .form-card {
     background: white;
@@ -192,7 +180,6 @@ body {
     max-width: 500px;
 }
 
-/* INPUT */
 
 input,
 select,
@@ -208,13 +195,11 @@ textarea {
     resize: vertical;
 }
 
-/* BUTTON SPACING */
 
 button {
     margin-right: 5px;
 }
 
-/* BACK LINK */
 
 .back-link {
     display: inline-block;
@@ -227,7 +212,6 @@ button {
     text-decoration: underline;
 }
 
-/* FOOTER */
 
 footer {
     text-align: center;
@@ -256,23 +240,40 @@ footer {
     color: white;
     border-radius: 6px;
     cursor: pointer;
+    font-weight: bold;
 }
 
+
 .pagination {
-    margin-top: 20px;
-    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
 .pagination a {
-    padding: 8px 12px;
-    margin: 4px;
-    background: #eee;
-    border-radius: 6px;
+    padding: 10px 16px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     text-decoration: none;
     color: #333;
+    font-weight: 600;
+    min-width: 40px;
+    text-align: center;
+    transition: all 0.2s ease;
 }
 
 .pagination a.active {
     background: #3498db;
     color: white;
+    border-color: #3498db;
+}
+
+.pagination a:hover:not(.active) {
+    background: #8fbddc;
+    border-color: #3498db;
+    color: #115685;
 }
