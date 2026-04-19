@@ -1,13 +1,11 @@
 <?php
 include "koneksi.php";
 
-// Mulai session jika belum ada (untuk pesan error/sukses)
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // 4. Implementasi Validasi Server
     $kode_barang = trim($_POST['kode_barang']);
     $nama_barang = trim($_POST['nama_barang']);
     $jumlah = $_POST['jumlah'];
@@ -17,11 +15,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     $errors = [];
 
+    if (empty($kode_barang)) {
+        $errors[] = "Kode barang tidak boleh kosong.";
+    }
     if (empty($nama_barang)) {
         $errors[] = "Nama barang tidak boleh kosong.";
     }
     if (!is_numeric($jumlah) || $jumlah < 0) {
         $errors[] = "Jumlah harus berupa angka valid.";
+    }
+    if (empty($kategori)) {
+        $errors[] = "Kategori tidak boleh kosong.";
     }
     if (!is_numeric($harga) || $harga < 0) {
         $errors[] = "Harga harus berupa angka valid.";
