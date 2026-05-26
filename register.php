@@ -1,5 +1,7 @@
 <?php
-include "koneksi.php";
+require_once __DIR__ . '/app/models/Database.php';
+$database = new Database();
+$conn = $database->conn;
 
 $message = "";
 $message_class = "";
@@ -46,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register System</title>
-    <link rel="stylesheet" href="style/style_log_res.css">
+    <link rel="stylesheet" href="public/style/style_log_res.css">
 </head>
 <body>
 
