@@ -1,0 +1,14 @@
+# Mengabaikan file konfigurasi database lokal yang berisi kredensial sensitif
+app/config/config.php
+config.php
+.env
+
+# Mengabaikan folder unggahan gambar agar repositori GitHub tidak penuh dan berat
+public/uploads/*
+uploads/*
+
+# Mengabaikan file sistem operasi dan text editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
